@@ -57,7 +57,7 @@ module.exports.addOne = (req, res) => {
                     response.status = 201;
                     response.message = student;
                 }
-                return res.status(response.status).json(response.message);
+                res.status(response.status).json(response.message);
             });
         }
     } else {

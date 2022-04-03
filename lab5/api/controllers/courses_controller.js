@@ -27,7 +27,7 @@ const addOne = (req, res) => {
             return res.status(500).json({error: err});
         } else if (!student) {
             console.log("Student not found");
-            return res.status(401).json({message: "Student id " + studentId + " not found"});
+            return res.status(404).json({message: "Student id " + studentId + " not found"});
         }
         _addCourse(req, res, student);
     });
@@ -82,12 +82,12 @@ const getOne = (req, res) => {
         } 
         if (!student) {
             console.log("Student not found");
-            return res.status(401).json({message: "Student id " + studentId + " not found"});
+            return res.status(404).json({message: "Student id " + studentId + " not found"});
         }
         const course = student.courses.id(courseId);
         if (!course) {
             console.log("Course not found");
-            return res.status(401).json({message: "Course with id " + courseId + " not found"});
+            return res.status(404).json({message: "Course with id " + courseId + " not found"});
         }
         res.status(200).json(course);
     })
